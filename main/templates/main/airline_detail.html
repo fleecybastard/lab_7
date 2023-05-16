@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <div class="header">
+          <h1>{{ airline.name }}</h1>
+    </div>
+    <div class="controls">
+        <div class="back-button">
+            <a href="{% url 'airline-list' %}"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        </div>
+        <div class="back-button">
+            <a href="{% url 'airline-filter' pk=airline.id %}"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+        </div>
+        <div class="create-button">
+          <a href="{% url 'aircraft-create' pk=airline.id %}"><i class="fa-solid fa-circle-plus"></i> Add AirCraft</a>
+        </div>
+    </div>
+    <div class="airline-data">
+        <p class="payload">Total payload: {{ airline.total_payload }}</p>
+         <p class="capacity">Total capacity: {{ airline.total_capacity }}</p>
+    </div>
+    <div class="aircrafts-list">
+        {% for aircraft in aircrafts %}
+          <div class="aircraft">
+            <div class="name">{{ aircraft }}</div>
+            <a href="{% url 'aircraft-delete' pk=aircraft.id %}"><i class="fa-solid fa-trash"></i></a>
+          </div>
+        {% empty %}
+        <div class="aircraft">
+            <div>No aircrafts</div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

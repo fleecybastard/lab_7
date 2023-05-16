@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <div class="header">
+          <h1>Airlines Aggregator</h1>
+    </div>
+    <div class="create-button">
+      <a href="{% url 'airline-create' %}"><i class="fa-solid fa-circle-plus"></i> Add Airline</a>
+    </div>
+    <div class="airlines-list">
+        {% for airline in airline_list %}
+          <div class="airline">
+            <a href="{% url 'airline-detail' pk=airline.id %}" class="name">{{ airline.name }}</a>
+            <a href="{% url 'airline-delete' airline.id %}" ><i class="fa-solid fa-trash"></i></a>
+          </div>
+        {% empty %}
+            <div class="airline">No Airlines</div>
+        {%  endfor %}
+
+    </div>
+{% endblock content %}

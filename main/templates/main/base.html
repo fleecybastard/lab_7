@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+            content="This is to do list implemented using Django by Dennis Ivy who is a full stack web developer.">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Airlines Aggregator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+            body{
+                background-color: #352f5b;
+                font-family: 'Lato', sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+              }
+            a {
+                text-decoration: none;
+                color: inherit;
+                transition: 0.4s;
+            }
+
+            .container {
+                margin-top: 100px;
+                margin-bottom: 100px;
+                position: relative;
+                width: 400px;
+                padding: 3rem 4rem;
+                border-radius: 5px;
+                border: 2px solid black;
+            }
+
+            @media screen and (max-width: 800px) {
+              .container {
+                  width: 85%;
+                  padding: 1rem;
+              }
+            }
+
+            .header {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .create-button, .back-button {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .controls {
+                display: flex;
+                justify-content: space-between;
+            }
+            .airlines-list, .aircrafts-list {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .airline, .aircraft {
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+                padding: 20px;
+                border: 2px solid black;
+            }
+
+            .airline-data {
+                display: flex;
+                justify-content: space-around;
+                font-size: 20px;
+            }
+
+            a:hover {
+                color: white;
+            }
+
+
+            form {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+
+
+input[type=text], input[type=number], select {
+    -webkit-appearance: none;
+    padding: 8px;
+    font-size: 18px;
+    margin-left: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: #352f5b;
+}
+
+input[type=submit] {
+    background: #352f5b;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+input[type=submit]:hover {
+    color: white;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {% block content %} {% endblock content %}
+        </div>
+        <script src="https://kit.fontawesome.com/87decf1a21.js" crossorigin="anonymous"></script>
+    </body>
+</html>

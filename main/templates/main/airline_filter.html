@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <div class="header">
+          <h1>{{ airline.name }}</h1>
+    </div>
+
+    <div class="back-button">
+        <a href="{% url 'airline-detail' pk=airline.id %}"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    </div>
+    <form method="GET" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Search">
+    </form>
+    <div class="aircrafts-list">
+        {% for aircraft in aircrafts %}
+          <div class="aircraft">
+            <div class="name">{{ aircraft }}</div>
+            <a href="{% url 'aircraft-delete' pk=aircraft.id %}"><i class="fa-solid fa-trash"></i></a>
+          </div>
+        {% empty %}
+        <div class="aircraft">
+            <div>No aircrafts</div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
